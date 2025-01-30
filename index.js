@@ -6,7 +6,7 @@ const { extname, join } = require('path');
 hexo.config.feed = Object.assign({
   enable: true,
   type: 'atom',
-  limit: 20,
+  limit: 0,
   hub: '',
   content: true,
   content_limit: 140,
