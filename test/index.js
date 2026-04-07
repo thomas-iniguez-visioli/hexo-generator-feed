@@ -554,7 +554,10 @@ describe('Feed generator', () => {
     const post = items.filter(({ title }) => title === 'date');
     const { date, updated } = post[0];
 
-    updated.should.eql(date);
+    // Allowing for small millisecond offset due to unique timestamp logic
+    const dateMs = new Date(date).getTime();
+    const updatedMs = new Date(updated).getTime();
+    updatedMs.should.be.closeTo(dateMs, 10);
   });
 
   it('updated date', async () => {
