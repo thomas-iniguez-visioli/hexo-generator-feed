@@ -26,7 +26,7 @@
     <content type="html"><![CDATA[{{ post.Description | noControlChars | safe }}]]></content>
     {% endif %}
     {% if post.description %}
-    <summary type="html"><![CDATA[{{ post.description }}]]></summary>
+    <summary type="html"><![CDATA[{{ post.description | noControlChars | safe }}]]></summary>
     {% elif post.intro %}
     <summary type="html">{{ post.intro }}</summary>
     {% elif post.excerpt %}
@@ -36,16 +36,16 @@
       {% if config.feed.content_limit_delim %}
         {% set delim_pos = short_content.lastIndexOf(config.feed.content_limit_delim) %}
         {% if delim_pos > -1 %}
-    <summary type="html"><![CDATA[{{ short_content.substring(0, delim_pos) }}]]></summary>
+    <summary type="html"><![CDATA[{{ short_content.substring(0, delim_pos)| noControlChars | safe }}]]></summary>
         {% else %}
-    <summary type="html"><![CDATA[{{ short_content }}]]></summary>
+    <summary type="html"><![CDATA[{{ short_content| noControlChars | safe }}]]></summary>
         {% endif %}
       {% else %}
-    <summary type="html"><![CDATA[{{ short_content }}]]></summary>
+    <summary type="html"><![CDATA[{{ short_content | noControlChars | safe}}]]></summary>
       {% endif %}
     {% endif %}
     {% if post.lien %}
-    <content src="{{ post.lien | formatUrl }}" type="link"/>
+    <content src="{{ post.lien | formatUrl }}" type="html"/>
     {% endif %}
   
   </entry>
