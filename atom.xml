@@ -36,12 +36,12 @@
       {% if config.feed.content_limit_delim %}
         {% set delim_pos = short_content.lastIndexOf(config.feed.content_limit_delim) %}
         {% if delim_pos > -1 %}
-    <summary type="html">{{ short_content.substring(0, delim_pos) }}</summary>
+    <summary type="html"><![CDATA[{{ short_content.substring(0, delim_pos) }}]]></summary>
         {% else %}
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html"><![CDATA[{{ short_content }}]]></summary>
         {% endif %}
       {% else %}
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html"><![CDATA[{{ short_content }}]]></summary>
       {% endif %}
     {% endif %}
     {% if post.lien %}
