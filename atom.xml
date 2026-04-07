@@ -26,7 +26,7 @@
     <content type="html"><![CDATA[{{ post.Description | noControlChars | safe }}]]></content>
     {% endif %}
     {% if post.description %}
-    <summary type="html">{{ post.description }}</summary>
+    <summary type="html"><![CDATA[{{ post.description }}]]></summary>
     {% elif post.intro %}
     <summary type="html">{{ post.intro }}</summary>
     {% elif post.excerpt %}
