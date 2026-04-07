@@ -23,8 +23,7 @@
     <published>{{ post.date }}</published>
     <updated>{% if post.updated %}{{ post.updated}}{% else %}{{ post.date}}{% endif %}</updated>
     {% if config.feed.content and post.Description %}
-    <content type="html"><![CDATA[{{ post.Description | noControlChars | safe }}
-    	  <a href="{{post.lien}}" target="_blank">source</a>]]></content>
+    <content type="html"><![CDATA[{{ post.Description | noControlChars | safe }}]]></content>
     {% endif %}
     {% if post.description %}
     <summary type="html">{{ post.description }}</summary>
@@ -45,8 +44,8 @@
     <summary type="html">{{ short_content }}</summary>
       {% endif %}
     {% endif %}
-    {% if post.image %}
-    <content src="{{ post.image | formatUrl }}" type="image"/>
+    {% if post.lien %}
+    <content src="{{ post.lien | formatUrl }}" type="link"/>
     {% endif %}
   
   </entry>
